@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     vueJsx() //插件使用
   ],
-  resolve: {
+  resolve: { // 配置别名
     alias: {
       "@": resolve(__dirname, "./src"),
     },
