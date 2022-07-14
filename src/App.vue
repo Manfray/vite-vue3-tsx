@@ -7,9 +7,10 @@ import Test from '@/components/test'
 
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <HelloWorld msg="Hello" />
   111232233
   <Test></Test>
+  <router-view></router-view>
 </template>
 
 <style>
