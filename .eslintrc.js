@@ -12,7 +12,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    // 'prettier/@typescript-eslint' // Error: Cannot read config file: D:\manfray\ViteVue3Tsx\node_modules\eslint-config-prettier\@typescript-eslint.js  Error: "prettier/@typescript-eslint" has been merged into "prettier" in eslint-config-prettier 8.0.0. See: https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
     'plugin:prettier/recommended'
   ],
   rules: {
