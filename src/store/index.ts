@@ -1,14 +1,14 @@
-import { createStore } from "vuex"
+import { createStore } from 'vuex'
 
 // 此处和router类似
 const store = createStore({
-  state () {
+  state() {
     return {
       count: 0
     }
   },
   mutations: {
-    setCount (state, payLoad) {
+    setCount(state, payLoad) {
       state.count = payLoad
     }
   }

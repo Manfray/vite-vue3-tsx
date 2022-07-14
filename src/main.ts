@@ -5,6 +5,6 @@ import store from '@/store'
 
 // 引入ant-design-vue
 import antDesignVue from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/antd.css'
 
 createApp(App).use(antDesignVue).use(router).use(store).mount('#app')

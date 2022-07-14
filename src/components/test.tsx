@@ -11,7 +11,7 @@ export default defineComponent({
     const vuexCount = computed(() => store.state.count)
     setTimeout(() => {
       age.value = 19
-    }, 2000);
+    }, 2000)
     function handleSetCountClick() {
       store.commit('setCount', store.state.count + 1)
     }
@@ -26,8 +26,13 @@ export default defineComponent({
     return (
       <>
         {/* 写一个 hello world */}
-        <div class='test'>hello {this.username}, you are {this.age} years old now</div>
-        <Button type='primary' onClick={this.handleSetCountClick}>点击</Button>{this.vuexCount}
+        <div class="test">
+          hello {this.username}, you are {this.age} years old now
+        </div>
+        <Button type="primary" onClick={this.handleSetCountClick}>
+          点击
+        </Button>
+        {this.vuexCount}
       </>
     )
   }

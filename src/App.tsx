@@ -1,14 +1,13 @@
-import { defineComponent, render } from 'vue'
+import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import Test from '@/components/test'
 import './App.less'
 
 export default defineComponent({
+  components: {},
   props: {},
   emits: [],
-  components: {},
-  setup(props, ctx) {
-  },
+  setup(props, ctx) {},
   render() {
     return (
       <div>
