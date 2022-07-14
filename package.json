@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ant-design-vue": "^3.2.10",
     "vue": "^3.2.25",
     "vue-router": "^4.1.2"
   },

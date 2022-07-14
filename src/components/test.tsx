@@ -1,3 +1,4 @@
+import { Button } from 'ant-design-vue'
 import { defineComponent, ref } from 'vue'
 import '../style/test.less'
 
@@ -8,6 +9,11 @@ export default defineComponent({
     setTimeout(() => {
       age.value = 19
     }, 2000);
-    return () => <div class='test'>hello {name.value}, you are {age.value} years old now.</div> //写一个 hello world
+    return () =>
+      <>
+        {/* 写一个 hello world */}
+        <div class='test'>hello {name.value}, you are {age.value} years old now</div>
+        <Button>点击</Button>
+      </>
   }
 })
