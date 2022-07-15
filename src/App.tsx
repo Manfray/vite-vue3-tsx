@@ -11,7 +11,7 @@ export default defineComponent({
   render() {
     return (
       <div>
-        <HelloWorld msg='Hello' />
+        <HelloWorld msg="Hello" />
         111232233
         <Test></Test>
         <router-view></router-view>
