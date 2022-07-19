@@ -17,3 +17,14 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ## 爬坑记录
 1、https://blog.csdn.net/weixin_44067333/article/details/121647363 provide/inject都必须在setup中使用 异步返回的数据需要先提供出去，再修改
+2、插槽的写法
+```jsx
+  <Button
+    onClick={() => (this.sysVerify.normalLogin = 11)}
+    v-slots={{
+      icon: () => <DownloadOutlined />
+    }}
+  >
+    111
+  </Button>
+```
