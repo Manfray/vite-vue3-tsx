@@ -28,3 +28,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
     111
   </Button>
 ```
+3、组件自定义事件报错
+将大写改成小写，避免进入jsx的语法检查
+并在components中声明NormalLogin
+<normal-login on={{ onLoginSuccess: this.loginCallback }} />
