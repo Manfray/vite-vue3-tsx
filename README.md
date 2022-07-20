@@ -15,13 +15,16 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
-## 爬坑记录
+## jsx爬坑记录
+
+理解：ts是js的超集，tsx是ts的超集，将 jsx语法转成js的核心是vue内置的babel-plugin-jsx
+
 1、https://blog.csdn.net/weixin_44067333/article/details/121647363 provide/inject都必须在setup中使用 异步返回的数据需要先提供出去，再修改
 2、插槽的写法
 ```jsx
   <Button
     onClick={() => (this.sysVerify.normalLogin = 11)}
-    v-slots={{
+    v-slots={{ // slots 复数，别写掉了
       icon: () => <DownloadOutlined />
     }}
   >
@@ -29,6 +32,22 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
   </Button>
 ```
 3、组件自定义事件报错
-将大写改成小写，避免进入jsx的语法检查
-并在components中声明NormalLogin
-<normal-login on={{ onLoginSuccess: this.loginCallback }} />
+1. 自定义组件
+并在components中声明NormalLogin; 再将大写改成小写，避免进入jsx的语法检查 ---去掉
+组件不支持on={{ eventName: this.handleEvent }}
+```jsx
+// 错误示例
+<NormalLogin on={{ loginSuccess: this.loginCallback }} />
+// 正确示例
+<NormalLogin onLoginSuccess={this.loginCallback} />
+```
+2. 非自定义组件
+```jsx
+<Form
+  {...{
+    model: this.formState, // model属性比较特殊，需要用接口赋值方法给到组件
+    onFinish: this.handleFinish,
+    onFinishFailed: this.handleFinishFailed
+  }}
+>
+```
