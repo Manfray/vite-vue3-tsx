@@ -86,3 +86,27 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
     }
   )
 ```
+
+# VueNode理解
+也叫VNode VDom，虚拟dom的别称
+
+```jsx
+  // content配置参数类型声明
+  (property) ModalFuncProps.content?: (() => VueNode) | VueNode
+  content?: string | (() => VueNode) | VueNode;
+  // 使用样例
+  Modal.confirm({
+    mask: true,
+    centered: true,
+    width: '50%',
+    content: h(UserPrivacyAgreement), // 或: () => h(UserPrivacyAgreement) 通过渲染函数，将组件、异步组件、函数式组件转成VueNode，这个在js或者ts中会比较好用，因为没法解析jsx语法
+    // content: <UserPrivacyAgreement></UserPrivacyAgreement>, // 直接通过tsx对jsx的支持，使用标签将组件转成VueNode，必须在jsx或者tsx文件中使用
+    // content: () => <div>同意协议</div>, // 直接传jsx标签，会被babel将jsx标签转成vdom
+    okText: '同意',
+    cancelText: '拒绝',
+    onOk: () => {
+    },
+    onCancel: () => {
+    }
+  })
+```
