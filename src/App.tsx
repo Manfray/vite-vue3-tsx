@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import Test from '@/components/test'
 import './App.less'
@@ -7,14 +7,26 @@ export default defineComponent({
   components: {},
   props: {},
   emits: [],
-  setup(props, ctx) {},
+  setup(props, ctx) {
+    const test = ref(0)
+    return {
+      test
+    }
+  },
   render() {
     return (
-      <div>
-        <HelloWorld msg="Hello" />
-        111232233
-        <Test></Test>
-        <router-view></router-view>
+      <div style={{ border: '1px solid #aaa', padding: '10px', backgroundColor: '#ddd' }}>
+        这里是父容器
+        <div>展示v-model: 值: {this.test}</div>
+        <div style={{ border: '1px solid #999', padding: '10px', backgroundColor: '#bbb' }}>
+          <HelloWorld msg="Hello" />
+        </div>
+        <div style={{ border: '1px solid #999', padding: '10px', backgroundColor: '#bbb' }}>
+          <Test v-model:title={this.test}></Test>
+        </div>
+        <div style={{ border: '1px solid #999', padding: '10px', backgroundColor: '#bbb' }}>
+          <router-view></router-view>
+        </div>
       </div>
     )
   }

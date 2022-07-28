@@ -4,6 +4,8 @@ import { useStore } from 'vuex'
 import '../style/test.less'
 
 export default defineComponent({
+  props: ['title'],
+  emits: ['update:title'],
   setup() {
     const store = useStore()
     const username = ref('tom')
@@ -27,12 +29,19 @@ export default defineComponent({
       <>
         {/* 写一个 hello world */}
         <div class="test">
-          hello {this.username}, you are {this.age} years old now
+          普通用法： hello {this.username}, you are {this.age} years old now
         </div>
-        <Button type="primary" onClick={this.handleSetCountClick}>
-          点击
-        </Button>
-        {this.vuexCount}
+        <div>
+          vuex使用：
+          <Button type="primary" onClick={this.handleSetCountClick}>
+            点击
+          </Button>
+          {this.vuexCount}
+        </div>
+        <div>
+          展示v-model双向绑定： 值： {this.title}{' '}
+          <button onClick={() => this.$emit('update:title', this.title + 1)}>点击修改</button>
+        </div>
       </>
     )
   }
